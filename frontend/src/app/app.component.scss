@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#person-wrapper {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+
+  app-person {
+    margin: 1rem 2rem;
+  }
+}
+
+button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}

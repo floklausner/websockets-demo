@@ -1,0 +1,9 @@
+<h1>Persons</h1>
+
+<div id="person-wrapper" *ngIf="persons">
+  <app-person *ngFor="let p of persons" [person]="p"></app-person>
+</div>
+
+<button mat-icon-button (click)="create()" color="accent">
+  <mat-icon>add</mat-icon>
+</button>

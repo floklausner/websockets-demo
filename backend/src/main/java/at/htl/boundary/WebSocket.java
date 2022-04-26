@@ -7,7 +7,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint("/ws/{name}")
+@ServerEndpoint("/start-websocket/{name}")
 @ApplicationScoped
 public class WebSocket {
 

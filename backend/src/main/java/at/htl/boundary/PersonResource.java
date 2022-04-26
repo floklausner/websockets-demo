@@ -47,7 +47,7 @@ public class PersonResource {
         UriBuilder uri = uriInfo.getAbsolutePathBuilder().path("persons/" + person.id);
 
         return Response
-            .created(uri.build())
+            .ok(person)
             .build();
     }
 

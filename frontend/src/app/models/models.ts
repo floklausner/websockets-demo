@@ -3,4 +3,5 @@ export interface Person {
   name: string;
   birthdate: Date;
   email: string;
+  source?: string;
 }

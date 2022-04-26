@@ -33,10 +33,17 @@ export class PersonService {
 
   private connectToWebsocket(): void {
     this.webSocket.connect().subscribe(value => {
-      console.log(value);
-      console.log(JSON.parse(JSON.parse(value)));
 
       const person: Person = JSON.parse(JSON.parse(value))
+
+      if (person.source === this.webSocket.getSessionId()!.toString()) {
+        person.source = "self"
+      } else {
+        person.source = "other"
+      }
+
+      console.log(person);
+      console.log(JSON.parse(JSON.parse(value)));
 
       this.personSubject.next([...this.personSubject.value, person]);
     })
@@ -55,6 +62,7 @@ export class PersonService {
 
     this.backend.post<Person>('persons', body).then(value => {
       console.log(value)
+      value.source = this.webSocket.getSessionId()!.toString()
       this.webSocket.sendMessage(JSON.stringify(value))
     })
   }
